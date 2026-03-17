@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, rgb(17, 3, 85), #09e69c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #e90771e2;  /* semi-transparent */
+            backdrop-filter: blur(10px);           /* glass effect */
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+       input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        input::placeholder {
+            color: #eee;
+        }
+
+        input:focus {
+            border-color: #4facfe;
+            box-shadow: 0 0 5px rgba(79,172,254,0.5);
+        }
+
+        button {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #007bff;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌸 Iris Predictor</h1>
+
+    <form action="/predict" method="post">
+        <input type="text" name="sepal_length" placeholder="Sepal Length" required>
+        <input type="text" name="sepal_width" placeholder="Sepal Width" required>
+        <input type="text" name="petal_length" placeholder="Petal Length" required>
+        <input type="text" name="petal_width" placeholder="Petal Width" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            Prediction: {{ prediction }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+mlruns/
+models/*.pkl
+models/*.joblib
+.env
